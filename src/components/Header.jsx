@@ -45,7 +45,8 @@ export const Header = () => {
                     </Link>
                     <Link to='/favorite_movies'>
                         <div className="relative"><AiTwotoneStar size={40} />
-                            <span className="absolute bottom-0 right-0 bg-[#FADFA1]/70 font-black text-base rounded-full px-2 text-black">2</span></div>
+                            {/* <span className="absolute bottom-0 right-0 bg-[#FADFA1]/70 font-black text-xs rounded-full px-2 text-black">{count}</span> */}
+                        </div>
                     </Link>
                 </ul>
             </div>

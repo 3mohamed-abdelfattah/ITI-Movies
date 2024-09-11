@@ -15,17 +15,14 @@ export const HomePage = () => {
     const dispatch = useDispatch();
 
     const { movies, loading, error } = useSelector((state) => state);
-    console.log(movies);
+    console.log('Movies from Redux Store:', movies);
+    console.log('Loading:', loading);
+    console.log('Error:', error);
 
     useEffect(() => {
         const storedFavorites = JSON.parse(localStorage.getItem('Favorites')) || {};
         setStar(storedFavorites);
     }, []);
-
-
-    useEffect(() => {
-        dispatch(fetchMovies(pageNumber));
-    }, [dispatch, pageNumber]);
 
     useEffect(() => {
         if (search.trim()) {
@@ -35,6 +32,11 @@ export const HomePage = () => {
         }
     }, [dispatch, search, pageNumber]);
 
+    useEffect(() => {
+        if (!search.trim()) {
+            dispatch(fetchMovies(pageNumber));
+        }
+    }, [dispatch, pageNumber]);
 
     const handleMovieClick = (id) => {
         navigate(`/movie/${id}`);
@@ -56,9 +58,7 @@ export const HomePage = () => {
 
     const toggleStar = (id) => {
         setStar((prev) => {
-            const updatedStar = {
-                ...prev,
-            };
+            const updatedStar = { ...prev };
 
             if (updatedStar[id]) {
                 delete updatedStar[id];
@@ -73,7 +73,6 @@ export const HomePage = () => {
             return updatedStar;
         });
     };
-
 
     return (
         <Fragment>
