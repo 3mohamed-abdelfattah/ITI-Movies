@@ -5,11 +5,12 @@ import { CiCircleInfo } from "react-icons/ci";
 import { FiHome } from "react-icons/fi";
 import React from 'react'
 import { Link } from "react-router-dom";
+
 import { useSelector } from 'react-redux';
 
 export const Header = () => {
 
-    const count = useSelector((state) => state.counter.count)
+    // const count = useSelector((state) => state.counter.count)
 
     return (
         <header className="flex justify-between items-center px-5 bg-[#55679c8b] shadow-xl">
@@ -44,7 +45,7 @@ export const Header = () => {
                     </Link>
                     <Link to='/favorite_movies'>
                         <div className="relative"><AiTwotoneStar size={40} />
-                            <span className="absolute bottom-0 right-0 bg-[#FADFA1]/70 font-black text-base rounded-full px-2 text-black">{count}</span></div>
+                            <span className="absolute bottom-0 right-0 bg-[#FADFA1]/70 font-black text-base rounded-full px-2 text-black">2</span></div>
                     </Link>
                 </ul>
             </div>
