@@ -7,6 +7,7 @@ import { Services } from './../pages/Services';
 import { Contact } from './../pages/Contact';
 import { NotFound } from "../pages/NotFound";
 import { MovieDetail } from "../pages/ProductDetail";
+import { FavoritePage } from "../pages/FavoritePage";
 
 const router = createBrowserRouter([
     {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
     {
         path: "/contact",
         element: <Contact />,
+    },
+    {
+        path: "/favorite_movies",
+        element: <FavoritePage />,
     },
     {
         path: "*",
