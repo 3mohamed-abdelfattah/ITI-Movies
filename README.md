@@ -20,12 +20,17 @@ Welcome to **New Movie**, a dynamic web application designed to help users disco
     <td><img src="https://github.com/user-attachments/assets/78091ecb-210a-423f-ae2b-f716679e567c" alt="Image"  style="border: 5px solid #92E3A9;"/></td>
   </tr>
   <tr align='center'>
-    <td><img src="https://github.com/user-attachments/assets/8d26bb47-7e32-451d-b406-4bda77b6b2ff" alt="Image"  style="border: 5px solid #92E3A9;"/></td>
+    <td>
+     
+   [Macbook-Air-localhost-D52ho2PsF3.webm](https://github.com/user-attachments/assets/045bd4d3-2a96-4d1f-b51d-070d282175b8)
+    
+   </td>
   </tr>
 </table>
 
 
 ## Technologies Used
+
 
 - **React**: Frontend framework for building the user interface.
 - **Vite**: Fast build tool and development server.
