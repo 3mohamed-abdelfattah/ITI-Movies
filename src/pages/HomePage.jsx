@@ -81,10 +81,10 @@ export const HomePage = () => {
                 <Header />
 
                 {/* Buttons for Next and Previous movie */}
-                <button className='hidden sm:absolute left-5 top-2/3 transition-transform duration-300 ease-in-out transform hover:scale-110' onClick={handlePreviousMovie} disabled={currentMovieIndex === 0}>
+                <button className='hidden sm:flex absolute left-5 top-2/3 transition-transform duration-300 ease-in-out transform hover:scale-110' onClick={handlePreviousMovie} disabled={currentMovieIndex === 0}>
                     <ToLeft />
                 </button>
-                <button className='hidden sm:absolute right-5 top-2/3 transition-transform duration-300 ease-in-out transform hover:scale-110' onClick={handleNextMovie} disabled={currentMovieIndex === movies.length - 1}>
+                <button className='hidden sm:flex absolute right-5 top-2/3 transition-transform duration-300 ease-in-out transform hover:scale-110' onClick={handleNextMovie} disabled={currentMovieIndex === movies.length - 1}>
                     <ToRight />
                 </button>
 
@@ -96,7 +96,7 @@ export const HomePage = () => {
                         spaceBetween={10}
                         centeredSlides={false}
                         loop={true}
-                        className="transition-transform duration-500 ease-in-out h-28 sm:h-fit"
+                        className="transition-transform duration-500 ease-in-out h-28 sm:h-48 md:h-fit"
                     >
                         {movies.map((movie, index) => (
                             <SwiperSlide
