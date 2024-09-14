@@ -19,6 +19,10 @@ Welcome to **New Movie**, a dynamic web application designed to help users disco
     <td><img src="https://github.com/user-attachments/assets/9fa8b244-1c9a-4568-a645-2706462d1b72" alt="Image"  style="border: 5px solid #92E3A9;"/></td>
     <td><img src="https://github.com/user-attachments/assets/78091ecb-210a-423f-ae2b-f716679e567c" alt="Image"  style="border: 5px solid #92E3A9;"/></td>
   </tr>
+    <tr align='center'>
+    <td><img src="https://github.com/user-attachments/assets/a4a49bed-7b13-4511-9c4e-78665ffe4a5a" alt="Image"  style="border: 5px solid #92E3A9;"/></td>
+    <td><img width='320px' src="https://github.com/user-attachments/assets/a3245501-fb89-47d5-8d08-a9aa54dcf25f" alt="Image"  style="border: 5px solid #92E3A9;"/></td>
+  </tr>
 </table>
 
 <div align="center">
