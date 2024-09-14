@@ -1,15 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Playwrite+CU:wght@100..400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Devanagari:wght@100;200;300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 * {
-    /* outline: 1px solid #1A5319; */
+    /* outline: 1px solid goldenrod; */
 }
 
 body {
-    /* @apply bg-background text-primary; */
+    font-family: "IBM Plex Sans Devanagari", sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -21,8 +21,4 @@ html {
 
 ::-webkit-scrollbar {
     width: 0px;
-}
-
-#Logo {
-    font-family: "Playwrite CU", system-ui;
 }
