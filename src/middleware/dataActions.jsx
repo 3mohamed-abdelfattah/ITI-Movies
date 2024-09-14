@@ -5,7 +5,6 @@ export const fetchMovies = () => async (dispatch) => {
 
   try {
     const { data } = await axios.get(`https://api.themoviedb.org/3/movie/top_rated?api_key=ec9e0f68699c576a9904e295326db236&page=1`);
-    console.log(data.results);
     dispatch({ type: 'FETCH_MOVIES_SUCCESS', payload: data.results });
   } catch (error) {
     dispatch({ type: 'FETCH_MOVIES_FAILURE', payload: error.message });

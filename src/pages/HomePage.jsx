@@ -81,22 +81,22 @@ export const HomePage = () => {
                 <Header />
 
                 {/* Buttons for Next and Previous movie */}
-                <button className='absolute left-5 top-2/3 transition-transform duration-300 ease-in-out transform hover:scale-110' onClick={handlePreviousMovie} disabled={currentMovieIndex === 0}>
+                <button className='hidden sm:absolute left-5 top-2/3 transition-transform duration-300 ease-in-out transform hover:scale-110' onClick={handlePreviousMovie} disabled={currentMovieIndex === 0}>
                     <ToLeft />
                 </button>
-                <button className='absolute right-5 top-2/3 transition-transform duration-300 ease-in-out transform hover:scale-110' onClick={handleNextMovie} disabled={currentMovieIndex === movies.length - 1}>
+                <button className='hidden sm:absolute right-5 top-2/3 transition-transform duration-300 ease-in-out transform hover:scale-110' onClick={handleNextMovie} disabled={currentMovieIndex === movies.length - 1}>
                     <ToRight />
                 </button>
 
                 {/* Swiper Slider */}
-                <div className='absolute flex justify-center items-center bottom-6 w-full px-6'>
+                <div className='absolute flex justify-center items-center bottom-6 w-full px-2 sm:px-6'>
                     <Swiper
                         ref={swiperRef}
                         slidesPerView={5}
                         spaceBetween={10}
                         centeredSlides={false}
                         loop={true}
-                        className="transition-transform duration-500 ease-in-out"
+                        className="transition-transform duration-500 ease-in-out h-28 sm:h-fit"
                     >
                         {movies.map((movie, index) => (
                             <SwiperSlide
@@ -107,7 +107,7 @@ export const HomePage = () => {
                                 <img
                                     src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}
                                     alt={movie.title}
-                                    className='shadow-2xl rounded-xl cursor-pointer transition-transform duration-500 ease-in-out'
+                                    className='h-full shadow-2xl rounded-xl cursor-pointer transition-transform duration-500 ease-in-out'
                                 />
                             </SwiperSlide>
                         ))}
@@ -115,8 +115,8 @@ export const HomePage = () => {
                 </div>
 
                 {/* Movie Description */}
-                <main className='mx-40 mt-20 max-w-[770px]'>
-                    <p className='text-7xl font-semibold text-[#F7F7F7] mb-6'>{currentMovie?.title || 'Movie Title'}</p>
+                <main className='mx-5 sm:m-16 md:mx-40 sm:mt-20 max-w-[770px]'>
+                    <p className='text-5xl md:text-7xl font-semibold text-[#F7F7F7] mb-6'>{currentMovie?.title || 'Movie Title'}</p>
 
                     <div className='flex flex-col gap-6'>
                         <span className='flex'>
@@ -126,7 +126,7 @@ export const HomePage = () => {
                                 <span className='text-sm font-normal text-white/40'>({currentMovie?.vote_count || 'N/A'})</span>
                             </div>
                             <span className='text-sm font-normal mx-3'>•</span>
-                            <div className='flex gap-2'>
+                            <div className='flex gap-1 sm:gap-2'>
                                 <span className='text-sm font-normal text-white/70'>{currentMovie?.release_date?.split('-')[0] || 'N/A'}</span>
                                 <span className='text-sm font-normal text-white/70'>|</span>
                                 <span className='text-sm font-normal text-white/70'>{currentMovie?.adult ? 'Adult' : 'All ages'}</span>
