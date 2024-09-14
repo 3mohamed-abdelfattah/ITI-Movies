@@ -4,7 +4,7 @@ import { Logo, SearchIcon } from '@/utils/icons.util'
 export const Header = () => {
 
   const styles = {
-    navText: 'text-lg font-medium'
+    navText: 'text-lg font-medium hover:scale-110 cursor-pointer hover:underline hover:decoration-3 hover:underline-offset-8 transition-all duration-300'
   }
 
   return (
@@ -22,9 +22,11 @@ export const Header = () => {
             <li className={styles.navText}>Country</li>
             <li className={styles.navText}>Movie</li>
             <li className={styles.navText}>TV Series</li>
-            <p className={styles.navText}>|</p>
+            <p className='text-lg font-medium'>|</p>
           </ul>
-          <SearchIcon />
+          <span className={styles.navText}>
+            <SearchIcon />
+          </span>
         </nav>
 
       </div>

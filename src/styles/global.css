@@ -5,8 +5,8 @@
 @tailwind utilities;
 
 * {
-    outline: 1px solid goldenrod;
-    transition: all 0.5s ease-out;
+    /* outline: 1px solid goldenrod; */
+    /* transition: all 0.5s ease-out; */
 }
 
 body {
