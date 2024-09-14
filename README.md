@@ -19,14 +19,12 @@ Welcome to **New Movie**, a dynamic web application designed to help users disco
     <td><img src="https://github.com/user-attachments/assets/9fa8b244-1c9a-4568-a645-2706462d1b72" alt="Image"  style="border: 5px solid #92E3A9;"/></td>
     <td><img src="https://github.com/user-attachments/assets/78091ecb-210a-423f-ae2b-f716679e567c" alt="Image"  style="border: 5px solid #92E3A9;"/></td>
   </tr>
-  <tr align='center'>
-    <td>
-     
-   [Macbook-Air-localhost-D52ho2PsF3.webm](https://github.com/user-attachments/assets/045bd4d3-2a96-4d1f-b51d-070d282175b8)
-    
-   </td>
-  </tr>
 </table>
+
+<div align="center">
+ 
+   [Macbook-Air-localhost-D52ho2PsF3.webm](https://github.com/user-attachments/assets/045bd4d3-2a96-4d1f-b51d-070d282175b8)
+</div>
 
 
 ## Technologies Used
