@@ -71,20 +71,20 @@ export const HomePage = () => {
 
     return (
         <main
-            className='relative bg-cover bg-center'
+            className={`relative bg-cover bg-center transition-all duration-500 ease-in-out`}
             style={{
                 backgroundImage: `radial-gradient(circle, rgba(2,0,36,0) 0%, rgba(0,0,0,0.468312324929972) 53%), url(${imageLoaded ? `https://image.tmdb.org/t/p/original/${currentMovieBg}` : ''})`,
                 height: '100vh',
             }}
         >
-            <div className='absolute inset-0 bg-black/20 text-white'>
+            <div className='absolute inset-0 bg-black/60 text-white'>
                 <Header />
 
                 {/* Buttons for Next and Previous movie */}
-                <button className='absolute left-5 top-2/3' onClick={handlePreviousMovie} disabled={currentMovieIndex === 0}>
+                <button className='absolute left-5 top-2/3 transition-transform duration-300 ease-in-out transform hover:scale-110' onClick={handlePreviousMovie} disabled={currentMovieIndex === 0}>
                     <ToLeft />
                 </button>
-                <button className='absolute right-5 top-2/3' onClick={handleNextMovie} disabled={currentMovieIndex === movies.length - 1}>
+                <button className='absolute right-5 top-2/3 transition-transform duration-300 ease-in-out transform hover:scale-110' onClick={handleNextMovie} disabled={currentMovieIndex === movies.length - 1}>
                     <ToRight />
                 </button>
 
@@ -92,24 +92,29 @@ export const HomePage = () => {
                 <div className='absolute flex justify-center items-center bottom-6 w-full px-6'>
                     <Swiper
                         ref={swiperRef}
-                        slidesPerView={6}
+                        slidesPerView={5}
                         spaceBetween={10}
                         centeredSlides={false}
                         loop={true}
+                        className="transition-transform duration-500 ease-in-out"
                     >
                         {movies.map((movie, index) => (
-                            <SwiperSlide key={index} onClick={() => setCurrentMovieIndex(index)}>
+                            <SwiperSlide
+                                key={index}
+                                onClick={() => setCurrentMovieIndex(index)}
+                                className={`relative transition-transform duration-500 ease-in-out ${index === currentMovieIndex ? 'scale-100 border-4 border-[#f5c61c] rounded-2xl shadow-2xl' : 'scale-75 border-2 border-white rounded-xl shadow- opacity-70'}`}
+                            >
                                 <img
                                     src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}
                                     alt={movie.title}
-                                    className='shadow-2xl rounded-xl cursor-pointer'
+                                    className='shadow-2xl rounded-xl cursor-pointer transition-transform duration-500 ease-in-out'
                                 />
                             </SwiperSlide>
                         ))}
                     </Swiper>
                 </div>
 
-                {/* Movie Description*/}
+                {/* Movie Description */}
                 <main className='mx-40 mt-20 max-w-[770px]'>
                     <p className='text-7xl font-semibold text-[#F7F7F7] mb-6'>{currentMovie?.title || 'Movie Title'}</p>
 
@@ -131,12 +136,12 @@ export const HomePage = () => {
                                 <span className='text-sm font-normal text-white/70'>{currentMovie?.genre_ids?.[0] || 'Genre'}</span>
                             </div>
                         </span>
-                        <p className='text-base font-normal'>{currentMovie?.overview || 'Movie description not available.'}</p>
+                        <p className='text-base font-semibold'>{currentMovie?.overview || 'Movie description not available.'}</p>
                         <span className='flex gap-4'>
-                            <button className='py-3 px-6 border border-white/60 rounded-lg text-base font-medium'>
+                            <button className='py-3 px-6 border border-white/60 rounded-lg text-base font-medium  transition-transform duration-300 ease-in-out transform hover:scale-110'>
                                 Watch trailer
                             </button>
-                            <button className='flex py-3 px-6 gap-3 bg-[#F5C61C] rounded-lg text-base text-[#2E2E2E] items-center font-medium'>
+                            <button className='flex py-3 px-6 gap-3 bg-[#F5C61C] rounded-lg text-base text-[#2E2E2E] items-center font-medium transition-transform duration-300 ease-in-out transform hover:scale-110'>
                                 <PlayButton />
                                 Watch now
                             </button>
