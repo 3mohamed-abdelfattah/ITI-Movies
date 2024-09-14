@@ -1,91 +1,33 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import { decrement, increment } from '../store[NotUsed]/Actions';
-import { fetchMovies, searchMovies } from '../middleware/dataActions';
-import BG from '../assets/wallpaper.jpg'
 import { Header } from '../components/Header';
 import { MainDescription } from '../components/MainDescription';
 
 export const HomePage = () => {
-    const [pageNumber, setPageNumber] = useState(1);
-    const [search, setSearch] = useState('');
-    const [star, setStar] = useState({});
-
-    const navigate = useNavigate();
-    const dispatch = useDispatch();
-
-    const { movies, loading, error } = useSelector((state) => state);
-    console.log('Movies from Redux Store:', movies);
-    console.log('Loading:', loading);
-    console.log('Error:', error);
+    const [currentMovieBg, setCurrentMovieBg] = useState('')
+    const [imageLoaded, setImageLoaded] = useState(false)
 
     useEffect(() => {
-        const storedFavorites = JSON.parse(localStorage.getItem('Favorites')) || {};
-        setStar(storedFavorites);
-    }, []);
-
-    useEffect(() => {
-        if (search.trim()) {
-            dispatch(searchMovies(search.trim()));
-        } else {
-            dispatch(fetchMovies(pageNumber));
+        if (currentMovieBg) {
+            const img = new Image();
+            img.src = `https://image.tmdb.org/t/p/original/${currentMovieBg}`;
+            img.onload = () => {
+                setImageLoaded(true);
+            };
         }
-    }, [dispatch, search, pageNumber]);
-
-    useEffect(() => {
-        if (!search.trim()) {
-            dispatch(fetchMovies(pageNumber));
-        }
-    }, [dispatch, pageNumber]);
-
-    const handleMovieClick = (id) => {
-        navigate(`/movie/${id}`);
-    };
-
-    const handleNextPage = () => {
-        setPageNumber((prevPage) => prevPage + 1);
-    };
-
-    const handlePreviousPage = () => {
-        if (pageNumber > 1) {
-            setPageNumber((prevPage) => prevPage - 1);
-        }
-    };
-
-    const handleSearch = (e) => {
-        setSearch(e.target.value);
-    };
-
-    const toggleStar = (id) => {
-        setStar((prev) => {
-            const updatedStar = { ...prev };
-
-            if (updatedStar[id]) {
-                delete updatedStar[id];
-                localStorage.setItem('Favorites', JSON.stringify(updatedStar));
-                dispatch(decrement());
-            } else {
-                updatedStar[id] = id;
-                localStorage.setItem('Favorites', JSON.stringify(updatedStar));
-                dispatch(increment());
-            }
-
-            return updatedStar;
-        });
-    };
+    }, [currentMovieBg]);
 
     return (
         <main
-            className='bg-cover bg-center backdrop-blur-3xl	'
+            className='bg-cover bg-center'
             style={{
-                backgroundImage: `url(${BG})`,
+                backgroundImage: `radial-gradient(circle, rgba(2,0,36,0) 0%, rgba(0,0,0,0.468312324929972) 53%), url(${imageLoaded ? `https://image.tmdb.org/t/p/original/${currentMovieBg}` : ''})`,
                 height: '100vh',
+                transition: 'background-image 0.5s ease-in-out',
             }}
         >
-            <div className='absolute inset-0 backdrop-blur-sm text-white'>
+            <div className='absolute inset-0 text-white'>
                 <Header />
-                <MainDescription />
+                <MainDescription setCurrentMovieBg={setCurrentMovieBg} />
             </div>
         </main>
     );

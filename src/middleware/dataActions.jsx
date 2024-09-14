@@ -1,10 +1,10 @@
 import axios from 'axios';
 
-export const fetchMovies = (pageNumber) => async (dispatch) => {
+export const fetchMovies = () => async (dispatch) => {
   dispatch({ type: 'FETCH_MOVIES_REQUEST' });
 
   try {
-    const { data } = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=ec9e0f68699c576a9904e295326db236&page=${pageNumber}`);
+    const { data } = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=ec9e0f68699c576a9904e295326db236&page=1`);
     console.log(data.results);
     dispatch({ type: 'FETCH_MOVIES_SUCCESS', payload: data.results });
   } catch (error) {
