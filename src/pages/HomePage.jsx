@@ -116,7 +116,7 @@ export const HomePage = () => {
 
                 {/* Movie Description */}
                 <main className='mx-5 sm:m-16 md:mx-40 sm:mt-20 max-w-[770px]'>
-                    <p className='text-5xl md:text-7xl font-semibold text-[#F7F7F7] mb-6'>{currentMovie?.title || 'Movie Title'}</p>
+                    <p className=' text-xl xxs:text-3xl xs:text-5xl md:text-7xl font-semibold text-[#F7F7F7] mb-6'>{currentMovie?.title || 'Movie Title'}</p>
 
                     <div className='flex flex-col gap-6'>
                         <span className='flex'>
@@ -129,19 +129,19 @@ export const HomePage = () => {
                             <div className='flex gap-1 sm:gap-2'>
                                 <span className='text-sm font-normal text-white/70'>{currentMovie?.release_date?.split('-')[0] || 'N/A'}</span>
                                 <span className='text-sm font-normal text-white/70'>|</span>
-                                <span className='text-sm font-normal text-white/70'>{currentMovie?.adult ? 'Adult' : 'All ages'}</span>
+                                <span className='hidden xxs:flex text-sm font-normal text-white/70'>{currentMovie?.adult ? 'Adult' : 'All ages'}</span>
                                 <span className='text-sm font-normal text-white/70'>|</span>
                                 <span className='text-sm font-normal text-white/70'>{currentMovie?.original_language || 'en'}</span>
                                 <span className='text-sm font-normal text-white/70'>|</span>
                                 <span className='text-sm font-normal text-white/70'>{currentMovie?.genre_ids?.[0] || 'Genre'}</span>
                             </div>
                         </span>
-                        <p className='text-base font-semibold'>{currentMovie?.overview || 'Movie description not available.'}</p>
+                        <p className='text-sm xs:text-base font-semibold line-clamp-5 xxs:line-clamp-[9] xs:line-clamp-none'>{currentMovie?.overview || 'Movie description not available.'}</p>
                         <span className='flex gap-4'>
-                            <button className='py-3 px-6 border border-white/60 rounded-lg text-base font-medium  transition-transform duration-300 ease-in-out transform hover:scale-110'>
+                            <button className='py-3 px-3 xxs:px-6 border border-white/60 rounded-lg text-sm xxs:text-base font-medium  transition-transform duration-300 ease-in-out transform hover:scale-110'>
                                 Watch trailer
                             </button>
-                            <button className='flex py-3 px-6 gap-3 bg-[#F5C61C] rounded-lg text-base text-[#2E2E2E] items-center font-medium transition-transform duration-300 ease-in-out transform hover:scale-110'>
+                            <button className='flex py-3 px-3 xxs:px-6 gap-3 bg-[#F5C61C] rounded-lg text-sm xxs:text-base text-[#2E2E2E] items-center font-medium transition-transform duration-300 ease-in-out transform hover:scale-110'>
                                 <PlayButton />
                                 Watch now
                             </button>
